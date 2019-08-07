@@ -1,3 +1,4 @@
+operand = ()
 # Method to get and validate operands
 def get_operand
   operand = gets.chomp
@@ -46,7 +47,6 @@ when "exponify", "**", "^"
   operator_select = :**
 end
 
-operand = ()
 
 # Get user input for operands
 puts "What is your first number?"
