@@ -22,9 +22,9 @@ print "\nPlease choose one operator (name or symbol): "
 option =  gets.chomp.downcase
 
 until operations.include?(option)
-   puts "INVALID INPUT, SORRY... Try again.\n"
-   print "\nPlease choose one operator (name or symbol): "
-   option =  gets.chomp.downcase
+  puts "INVALID INPUT, SORRY... Try again.\n"
+  print "\nPlease choose one operator (name or symbol): "
+  option =  gets.chomp.downcase
 end
 
 # handle unexpected input for numbers (expected 0, positive and negative numeric input).
