@@ -1,34 +1,19 @@
-def prompt_operator
-  puts "enter a math operation"
-  operator = gets.chomp
+class Integer
+  alias add +
+  alias subtract -
+  alias multiply *
+  alias divide / 
 end
 
 def prompt_number
-  begin
-    puts "enter a number for the math operation"
-    Float(gets.chomp) 
-  rescue ArgumentError
-    puts "invalid number"
-    retry
-  end
+  puts "enter a number for the math operation"
+  Float(gets.chomp) rescue "invalid input"
 end
+
+puts "enter a math operation"
+operator = gets.chomp
 
 x = prompt_number
 y = prompt_number
-operator = prompt_operator
 
-while
-  case operator
-    when "add", "+"
-      puts x + y
-    when "subtract", "-"
-      puts x - y
-    when "multiply", "*"
-      puts x * y
-    when "divide", "/"
-      puts x / y
-    else
-      puts "invalid operator"
-      operator = prompt_operator
-  end
-end
+puts x.send(operator, y) rescue "invalid input"
