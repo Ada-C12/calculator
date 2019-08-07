@@ -1,5 +1,3 @@
-# BROKEN AT LINE 20ish
-
 # method for input validation of numbers
 #new_num = nil # serves as a placeholder variable in case the user has to re-enter any numbers during the number_validation method
 new_num = nil
@@ -19,7 +17,6 @@ def number_validation (input)
     else
       print "Oh nos! You entered some non-number character. Enter a new one: " #BROKEN. Does not loop properly after entry of new number. :/ 
       input = gets.chomp
-      puts "#{input}"
     end
   end
   
