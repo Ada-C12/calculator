@@ -17,7 +17,6 @@ def calculator
         first_number = gets.chomp
     end
 
-    input =~ /\d/
     puts "What is your second number?"
     second_number = gets.chomp
     if operator == 'exponent' || operator == '^'  # verify if the input is valid, if the operator is exponential, float is invalid and integer is valid
