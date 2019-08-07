@@ -50,7 +50,6 @@ begin
   end
   print num_two
 
-
 # Create Case Statement
 case user_choice
 when "add", "+"
