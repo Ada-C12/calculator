@@ -36,7 +36,6 @@ while num2_test.to_s != num2
 end
 num2 = num2.to_i
 
-
 # prints results using appropriate method, prints error if trying to divide by 0
 print "\n"
 print "Result: "
