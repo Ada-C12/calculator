@@ -24,7 +24,7 @@ def is_number(string)
 end
 
 # welcome user to program, provide list of oeprators, looping through list options
-puts "Welcome to the Calculator program!"
+puts "Welcome to the Calculator program! I hear you need help..."
 puts "Which operator would you like to use from the below list?"
 4.times do |i|
   puts "#{i+1}: #{operators[i][0]} (#{operators[i][1]})"
@@ -35,7 +35,7 @@ puts "Enter your chosen operator now (name or symbol)."
 operator_pick = gets.chomp
 # use method.include to throw error if user input is not on the operator list and prompt user to try again
 until operators_check.include?(operator_pick)
-  puts "ERROR: invalud entry. Please selection operator from list."
+  puts "ERROR: invalid entry. Please select operator from list."
   puts "Enter your chosen operator now (name or symbol)."
   operator_pick = gets.chomp
   puts "You've selected the #{operator_pick} operator."
@@ -47,7 +47,7 @@ end
 # include .to_f to handle float entries as well (but now all outputs are floats? hm)
 puts "Next: select a number for this math operation."
 num_one_pick = gets.chomp
-if is_number(num_one_pick) == false
+while is_number(num_one_pick) == false
   puts "ERROR: this entry is not valid."
   puts "Next: select a number for this math operation."
   num_one_pick = gets.chomp
@@ -58,16 +58,16 @@ puts "You've selected #{num_one_pick} as your first number."
 puts "#{num_one_pick} is a great number."
 
 # get user's second number and reinstate. Error if less than 0
+# ensure user input is numerical and reject if non-numerical
+# if operator chosen is division, (to prevent division by 0) throw error, prompting the user to enter another number
 puts "Finally: select your second number for the Calculator."
 num_two_pick = gets.chomp
-if is_number(num_two_pick) == false
+while is_number(num_two_pick) == false || (num_two_pick == "0" && (operator_pick == "divide" || operator_pick == "/"))
   puts "ERROR: this entry is not valid."
+  puts "Please enter a different number for the Calculator."
+  num_two_pick = gets.chomp
 end
 
-# prevent division by 0 and throw error if occurs
-if num_two_pick == "0" && (operator_pick == "divide" || operator_pick == "/")
-  puts "ERROR: cannot divide by zero."
-end
 num_two_pick = num_two_pick.to_i.to_f
 
 puts "You've selected #{num_two_pick} as your second number."
@@ -88,3 +88,4 @@ puts (num_one_pick * num_two_pick)
   when "divide", "/"
 puts (num_one_pick / num_two_pick)
 end 
+puts "Thank you for using The Calculator. Come back next time you need help!"
