@@ -1,25 +1,25 @@
 # method for input validation of numbers
 #new_num = nil # serves as a placeholder variable in case the user has to re-enter any numbers during the number_validation method
-new_num = nil
+
 def number_validation (input)
-  eval = nil
-  
-  until eval == "Pass" do
+  eval_num = nil  
+  until eval_num == "Pass" do
     # transforms a copy of the user input to check against the original value
     input_v = input.to_f*100
     input_v = input_v.to_i.to_s
+    input_w = input.delete(".")
     if input == input.to_f.to_s
-      eval = "Pass"
+      eval_num = "Pass"
     elsif input == input.to_i.to_s
-      eval = "Pass"
-    elsif input_v == input
-      eval = "Pass"
+      eval_num = "Pass"
+    elsif input_v == input_w    
+      eval_num = "Pass"
     else
-      print "Oh nos! You entered some non-number character. Enter a new one: " #BROKEN. Does not loop properly after entry of new number. :/ 
+      print "Oh nos! You entered some non-number character. Enter a new one: "
       input = gets.chomp
     end
-  end
-  
+  end 
+  return input
 end
 
 # stores possible user inputs for mathematical operators
@@ -41,19 +41,15 @@ end
 
 # gets the user's numbers and validates them
 print "Enter the first number: "
-first_num = gets.chomp
-number_validation(first_num)
-puts new_num
-if new_num != nil
-  first_num = new_num # Line is here just in case the user had to try a different number than the original one as part of the method
-end
+input = gets.chomp
+new_input = number_validation(input)
+first_num = new_input  
 
+# gets the user's numbers and validates them
 print "Enter the second number: "
-second_num = gets.chomp
-number_validation(second_num)
-if new_num != nil
-  second_num = new_num
-end
+input = gets.chomp
+new_input = number_validation(input)
+second_num = new_input  
 
 # runs the calculation and displays for the user the work
 case 
