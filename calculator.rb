@@ -27,15 +27,15 @@ operator_num.times do |i|
   puts "\n\nWhich operator would you like to use?"
   puts "\n1. add (+)\n2. substract (-)\n3. multiply (*)\n4. divide (/)"
   print "\n##{i + 1} Please choose one operator(name or symbol): "
-  operator = gets.chomp
+  operator = gets.chomp.downcase
+
 
   while  !operator_array.include?(operator)
     puts "Please enter valid operator:"
     print "\n##{i + 1} Please chooce one operator(name or symbol): "
     operator = gets.chomp
   end
-  operator = operator.downcase
-
+  operator = operator
   if operator_array.include?(operator)
     print "\nEnter your first number: "
     num_1 = gets.chomp
