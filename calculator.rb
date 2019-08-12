@@ -76,7 +76,7 @@ def exponify(first_num, second_num)
   end
 
   equation << "#{first_num} = #{power}"
-  
+
   return equation
 end
 
